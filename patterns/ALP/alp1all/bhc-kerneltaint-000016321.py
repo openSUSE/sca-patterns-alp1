@@ -2,7 +2,7 @@
 #
 # Title:       Basic Health Check - Tainted Kernel
 # Description: Checks if the kernel is tainted or not, also TID 3582750
-# Modified:    2023 Oct 03
+# Modified:    2023 Oct 10
 #
 ##############################################################################
 # Copyright (C) 2023 SUSE LLC
@@ -49,10 +49,8 @@ def main(argv):
         print('Error: Supportconfig directory not found')
         sys.exit(1)
 
-    file_open = pat.get_supportconfig_path('basic-health-check.txt')
-    section = '/proc/sys/kernel/tainted'
     tainted = re.compile('Kernel Status.*Tainted')
-    content = core.get_section_re(file_open, section)
+    content = core.get_file_section(pat.get_supportconfig_path('basic-health-check.txt'), 'Kernel Status.*Tainted')
     taint_str = ''
     this_list = []
     only_external = True

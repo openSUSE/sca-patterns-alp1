@@ -2,7 +2,7 @@
 
 # Title:       Basic Health Check - CPU Load
 # Description: Processes Waiting for Run Queue (Kernel Load), also TID 7002722
-# Modified:    2023 Oct 04
+# Modified:    2023 Oct 10
 #
 ##############################################################################
 # Copyright (C) 2023 SUSE LLC
@@ -39,9 +39,7 @@ import suse_base2 as suse
 ##############################################################################
 
 def get_cpu_count():
-    file_open = pat.get_supportconfig_path('hardware.txt')
-    section = '/proc/cpuinfo'
-    content = core.get_section_re(file_open, section)
+    content = core.get_file_section(pat.get_supportconfig_path('hardware.txt'), '/proc/cpuinfo')
     cpus = 0
     if len(content) > 0:
         for line in content:
@@ -54,9 +52,7 @@ def get_avg_loads():
     IDX_LAST5 = -2
     IDX_LAST15 = -1
     IDX_LAST = -1
-    file_open = pat.get_supportconfig_path('basic-health-check.txt')
-    section = '/uptime'
-    content = core.get_section_re(file_open, section)
+    content = core.get_file_section(pat.get_supportconfig_path('basic-health-check.txt'), '/uptime')
     cpu_avg = []
     if len(content) > 0:
         for line in content:

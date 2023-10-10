@@ -2,7 +2,7 @@
 #
 # Title:       Basic Health Check - Free Memory and Disk Swapping
 # Description: Check the available memory and disk swapping activity, also TID 7000120
-# Modified:    2023 Oct 03
+# Modified:    2023 Oct 10
 #
 ##############################################################################
 # Copyright (C) 2023 SUSE LLC
@@ -49,9 +49,7 @@ def get_swapping_status():
     current_line = 0
     swapping = 'Unknown'
 
-    file_open = pat.get_supportconfig_path('basic-health-check.txt')
-    section = 'vmstat 1 4'
-    content = core.get_section_re(file_open, section)
+    content = core.get_file_section(pat.get_supportconfig_path('basic-health-check.txt'), 'vmstat 1 4')
 
     if len(content) > 0:
         for line in content:
@@ -82,9 +80,7 @@ def get_memory_status():
     this_mem_avail = -1
     this_mem_percent = -1
 
-    file_open = pat.get_supportconfig_path('basic-health-check.txt')
-    section = 'free -k'
-    content = core.get_section_re(file_open, section)
+    content = core.get_file_section(pat.get_supportconfig_path('basic-health-check.txt'), 'free -k')
 
     if len(content) > 0:
         for line in content:

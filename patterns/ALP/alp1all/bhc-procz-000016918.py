@@ -2,7 +2,7 @@
 #
 # Title:       Basic Health Check - Zombie (Defunct) Processes
 # Description: Also TID 7002724
-# Modified:    2023 Oct 04
+# Modified:    2023 Oct 10
 #
 ##############################################################################
 # Copyright (C) 2023 SUSE LLC
@@ -54,9 +54,7 @@ def main(argv):
 
     line_count = 0
     state_count = 0
-    file_open = pat.get_supportconfig_path('basic-health-check.txt')
-    section = '/ps axwwo'
-    content = core.get_section_re(file_open, section)
+    content = core.get_file_section(pat.get_supportconfig_path('basic-health-check.txt'), '/ps axwwo')
 
     if len(content) > 0:
         for line in content:

@@ -2,7 +2,7 @@
 #
 # Title:       Basic Health Check - File System Used Space
 # Description: Also TID 7002723
-# Modified:    2023 Oct 06
+# Modified:    2023 Oct 10
 #
 ##############################################################################
 # Copyright (C) 2023 SUSE LLC
@@ -33,22 +33,6 @@ import os
 import sys
 import suse_core2 as core
 import suse_base2 as suse
-
-##############################################################################
-# Local Function Definitions
-##############################################################################
-
-def get_cpu_count():
-    file_open = pat.get_supportconfig_path('basic-health-check.txt')
-    section = 'name'
-    content = core.get_section_re(file_open, section)
-
-    cpus = 0
-    if len(content) > 0:
-        for line in content:
-            if line.startswith('processor'):
-                cpus += 1
-    return cpus
 
 ################################################################
 # main

@@ -2,7 +2,7 @@
 #
 # Title:       Basic Health Check - CPU Context switches per second
 # Description: Also TID 7002720
-# Modified:    2023 Oct 04
+# Modified:    2023 Oct 10
 #
 ##############################################################################
 # Copyright (C) 2023 SUSE LLC
@@ -57,9 +57,7 @@ def main(argv):
     cs_total = 0
     cs_avg = 0
     proc_missing = re.compile("mount.*proc", re.IGNORECASE)
-    file_open = pat.get_supportconfig_path('basic-health-check.txt')
-    section = 'vmstat 1 4'
-    content = core.get_section_re(file_open, section)
+    content = core.get_file_section(pat.get_supportconfig_path('basic-health-check.txt'), 'vmstat 1 4')
 
     if len(content) > 0:
         for line in content:
