@@ -99,7 +99,7 @@ def main(argv):
 
 # Entry point
 if __name__ == '__main__':
-    pat = suse.SCAPattern('Basic Health', 'ALP', 'Registration')
+    pat = suse.SCAPatternGen2('Basic Health', 'ALP', 'Registration')
     pat.set_id(os.path.basename(__file__))
     pat.add_solution_link('SCC', 'https://scc.suse.com/dashboard', set_primary=True)
     pat.add_solution_link('Renew', 'https://www.suse.com/renewals/')

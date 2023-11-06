@@ -132,7 +132,7 @@ def main(argv):
 
 # Entry point
 if __name__ == '__main__':
-    pat = suse.SCAPattern('Basic Health', 'ALP', 'Memory')
+    pat = suse.SCAPatternGen2('Basic Health', 'ALP', 'Memory')
     pat.set_id(os.path.basename(__file__))
     pat.set_tid('000016603')
     pat.add_solution_link('Video', 'https://youtu.be/yLtX5F7ORJI')

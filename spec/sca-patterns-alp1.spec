@@ -28,9 +28,9 @@ License:      GPL-2.0
 URL:          https://github.com/g23guy/sca-patterns-alp1
 Group:        System/Monitoring
 Source:       %{name}-%{version}.tar.gz
-BuildRequires: fdupes
-Requires:     sca-patterns-base >= 2.0
+Requires:     sca-patterns-template-gen2
 Buildarch:    noarch
+BuildRequires: fdupes
 
 %description
 Supportconfig Analysis (SCA) appliance patterns to identify known
