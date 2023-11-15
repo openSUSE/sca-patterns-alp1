@@ -17,7 +17,7 @@
 %define patdir %{patdirbase}/patterns
 %define patuser root
 %define patgrp root
-%define mode 544
+%define patmode 755
 %define category ALP
 
 Name:         sca-patterns-alp1
@@ -48,8 +48,8 @@ pwd;ls -la
 install -d %{buildroot}/%{patdir}/%{category}
 install -d %{buildroot}/%{patdir}/%{category}/alp1all
 install -d %{buildroot}/%{patdir}/%{category}/alp1sp0
-install -m %{mode} patterns/%{category}/alp1all/* %{buildroot}/%{patdir}/%{category}/alp1all
-install -m %{mode} patterns/%{category}/alp1sp0/* %{buildroot}/%{patdir}/%{category}/alp1sp0
+install -m %{patmode} patterns/%{category}/alp1all/* %{buildroot}/%{patdir}/%{category}/alp1all
+install -m %{patmode} patterns/%{category}/alp1sp0/* %{buildroot}/%{patdir}/%{category}/alp1sp0
 %fdupes %{buildroot}
 
 %files
@@ -59,8 +59,8 @@ install -m %{mode} patterns/%{category}/alp1sp0/* %{buildroot}/%{patdir}/%{categ
 %dir %{patdir}/%{category}
 %dir %{patdir}/%{category}/alp1all
 %dir %{patdir}/%{category}/alp1sp0
-%attr(%{mode},%{patuser},%{patgrp}) %{patdir}/%{category}/alp1all/*
-%attr(%{mode},%{patuser},%{patgrp}) %{patdir}/%{category}/alp1sp0/*
+%attr(%{patmode},%{patuser},%{patgrp}) %{patdir}/%{category}/alp1all/*
+%attr(%{patmode},%{patuser},%{patgrp}) %{patdir}/%{category}/alp1sp0/*
 
 %changelog
 
