@@ -21,7 +21,7 @@
 %define category ALP
 
 Name:         sca-patterns-alp1
-Version:      2.0.0
+Version:      2.0.1
 Release:      0
 Summary:      Supportconfig Analysis Patterns for ALP1
 License:      GPL-2.0
