@@ -2,11 +2,10 @@
 #
 # Title:       Expired SCC Registrations
 # Description: Identify if SCC registrations have expired
-# Modified:    2023 Oct 06
-# Version:     2.0.0
+# Modified:    2024 Jan 31
 #
 ##############################################################################
-# Copyright (C) 2023 SUSE LLC
+# Copyright (C) 2024 SUSE LLC
 ##############################################################################
 #
 # This program is free software; you can redistribute it and/or modify
@@ -42,13 +41,8 @@ import suse_base2 as suse
 
 def main(argv):
     '''main entry point'''
+    pat.set_supportconfig_path(argv[1])
     LIMIT_WARN_DAYS = 60
-
-    try:
-        pat.set_supportconfig_path(argv[1])
-    except Exception:
-        print('Error: Supportconfig directory not found')
-        sys.exit(1)
 
     scc_info = suse.get_scc_info(pat)
 

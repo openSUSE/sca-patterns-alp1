@@ -2,10 +2,10 @@
 #
 # Title:       Basic Health Check - File System Used Space
 # Description: Also TID 7002723
-# Modified:    2023 Oct 10
+# Modified:    2024 Jan 31
 #
 ##############################################################################
-# Copyright (C) 2023 SUSE LLC
+# Copyright (C) 2024 SUSE LLC
 ##############################################################################
 #
 # This program is free software; you can redistribute it and/or modify
@@ -40,13 +40,9 @@ import suse_base2 as suse
 
 def main(argv):
     '''main entry point'''
+    pat.set_supportconfig_path(argv[1])
     LIMIT_CRIT = 50
     LIMIT_WARN = 30
-    try:
-        pat.set_supportconfig_path(argv[1])
-    except Exception:
-        print('Error: Supportconfig directory not found')
-        sys.exit(1)
 
     highest_percent_used = -1
     highest_mount_point = ''

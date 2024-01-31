@@ -2,10 +2,10 @@
 #
 # Title:       Basic Health Check - Uninterruptible Processes
 # Description: Also TID 7002725
-# Modified:    2023 Oct 10
+# Modified:    2024 Jan 31
 #
 ##############################################################################
-# Copyright (C) 2023 SUSE LLC
+# Copyright (C) 2024 SUSE LLC
 ##############################################################################
 #
 # This program is free software; you can redistribute it and/or modify
@@ -40,17 +40,12 @@ import suse_base2 as suse
 
 def main(argv):
     '''main entry point'''
+    pat.set_supportconfig_path(argv[1])
     IDX_STATE = 7
     HEADER_LINES = 2
     LIMIT_CRIT = 4
     LIMIT_WARN = 2
     REQUIRED_STATE = 'D'
-
-    try:
-        pat.set_supportconfig_path(argv[1])
-    except Exception:
-        print('Error: Supportconfig directory not found')
-        sys.exit(1)
 
     line_count = 0
     state_count = 0

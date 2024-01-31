@@ -2,10 +2,10 @@
 #
 # Title:       Basic Health Check - CPU Context switches per second
 # Description: Also TID 7002720
-# Modified:    2023 Oct 10
+# Modified:    2024 Jan 31
 #
 ##############################################################################
-# Copyright (C) 2023 SUSE LLC
+# Copyright (C) 2024 SUSE LLC
 ##############################################################################
 #
 # This program is free software; you can redistribute it and/or modify
@@ -41,17 +41,12 @@ import suse_base2 as suse
 
 def main(argv):
     '''main entry point'''
+    pat.set_supportconfig_path(argv[1])
     IDX_CONTEXT_SWITCHES = 11
     CS_COUNT = 3
     HEADER_LINES = 4
     LIMIT_CS_CRIT = 100000
     LIMIT_CS_WARN = 80000
-
-    try:
-        pat.set_supportconfig_path(argv[1])
-    except IndexError:
-        print('Error: Supportconfig directory not found')
-        sys.exit(1)
 
     line_count = 0
     cs_total = 0

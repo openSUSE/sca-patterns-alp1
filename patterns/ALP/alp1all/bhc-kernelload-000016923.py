@@ -2,10 +2,10 @@
 
 # Title:       Basic Health Check - CPU Load
 # Description: Processes Waiting for Run Queue (Kernel Load), also TID 7002722
-# Modified:    2023 Oct 10
+# Modified:    2024 Jan 31
 #
 ##############################################################################
-# Copyright (C) 2023 SUSE LLC
+# Copyright (C) 2024 SUSE LLC
 ##############################################################################
 #
 # This program is free software; you can redistribute it and/or modify
@@ -71,15 +71,10 @@ def get_avg_loads():
 
 def main(argv):
     '''main entry point'''
+    pat.set_supportconfig_path(argv[1])
     OPTIMAL = 75
     WARNING = 90
     CRITICAL = 110
-
-    try:
-        pat.set_supportconfig_path(argv[1])
-    except IndexError:
-        print('Error: Supportconfig directory not found')
-        sys.exit(1)
 
     cpu_count = get_cpu_count()
     cpu_loads = get_avg_loads()

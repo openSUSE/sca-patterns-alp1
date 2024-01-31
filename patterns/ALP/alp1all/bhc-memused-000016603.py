@@ -2,10 +2,10 @@
 #
 # Title:       Basic Health Check - Free Memory and Disk Swapping
 # Description: Check the available memory and disk swapping activity, also TID 7000120
-# Modified:    2023 Oct 10
+# Modified:    2024 Jan 31
 #
 ##############################################################################
-# Copyright (C) 2023 SUSE LLC
+# Copyright (C) 2024 SUSE LLC
 ##############################################################################
 #
 # This program is free software; you can redistribute it and/or modify
@@ -102,14 +102,9 @@ def get_memory_status():
 
 def main(argv):
     '''main entry point'''
+    pat.set_supportconfig_path(argv[1])
     LIMIT_MEM_CRIT = 90
     LIMIT_MEM_WARN = 85
-
-    try:
-        pat.set_supportconfig_path(argv[1])
-    except IndexError:
-        print('Error: Supportconfig directory not found')
-        sys.exit(1)
 
     swapping_to_disk = get_swapping_status()
     mem_total, mem_avail, mem_percent = get_memory_status()
