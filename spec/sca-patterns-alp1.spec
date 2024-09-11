@@ -20,7 +20,7 @@
 %define patmode 755
 %define category SLE
 
-Name:         sca-patterns-sle16
+Name:         sca-patterns-alp1
 Version:      2.0.3
 Release:      0
 Summary:      Supportconfig Analysis Patterns for SLE16
