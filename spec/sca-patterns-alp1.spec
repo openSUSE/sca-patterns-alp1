@@ -21,7 +21,7 @@
 %define category SLE
 
 Name:         sca-patterns-alp1
-Version:      2.0.3
+Version:      2.0.4
 Release:      0
 Summary:      Supportconfig Analysis Patterns for SLE16
 License:      GPL-2.0
@@ -48,8 +48,10 @@ pwd;ls -la
 install -d %{buildroot}/%{patdir}/%{category}
 install -d %{buildroot}/%{patdir}/%{category}/sle16all
 install -d %{buildroot}/%{patdir}/%{category}/sle16sp0
+install -d %{buildroot}/%{patdir}/%{category}/sle16sp1
 install -m %{patmode} patterns/%{category}/sle16all/* %{buildroot}/%{patdir}/%{category}/sle16all
 install -m %{patmode} patterns/%{category}/sle16sp0/* %{buildroot}/%{patdir}/%{category}/sle16sp0
+install -m %{patmode} patterns/%{category}/sle16sp0/* %{buildroot}/%{patdir}/%{category}/sle16sp1
 %fdupes %{buildroot}
 
 %files
@@ -59,8 +61,10 @@ install -m %{patmode} patterns/%{category}/sle16sp0/* %{buildroot}/%{patdir}/%{c
 %dir %{patdir}/%{category}
 %dir %{patdir}/%{category}/sle16all
 %dir %{patdir}/%{category}/sle16sp0
+%dir %{patdir}/%{category}/sle16sp1
 %attr(%{patmode},%{patuser},%{patgrp}) %{patdir}/%{category}/sle16all/*
 %attr(%{patmode},%{patuser},%{patgrp}) %{patdir}/%{category}/sle16sp0/*
+%attr(%{patmode},%{patuser},%{patgrp}) %{patdir}/%{category}/sle16sp1/*
 
 %changelog
 

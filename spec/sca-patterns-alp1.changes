@@ -1,4 +1,10 @@
 -------------------------------------------------------------------
+Sat Sep 21 18:15:03 UTC 2024 - jason.record@suse.com
+
+- Changes to version 2.0.4
+  + Added directory for sle16sp1 patterns (bsc#1230883)
+
+-------------------------------------------------------------------
 Wed Aug 28 12:30:42 UTC 2024 - jason.record@suse.com
 
 - Changes to version 2.0.3
