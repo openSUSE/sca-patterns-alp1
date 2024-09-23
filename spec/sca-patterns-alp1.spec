@@ -1,4 +1,4 @@
- 
+#
 # spec file for package sca-patterns-alp1
 #
 # Copyright (c) 2024 SUSE LLC
@@ -12,6 +12,10 @@
 # license that conforms to the Open Source Definition (Version 1.9)
 # published by the Open Source Initiative.
 
+# Please submit bugfixes or comments via https://bugs.opensuse.org/
+#
+
+
 %define sca_common sca
 %define patdirbase /usr/lib/%{sca_common}
 %define patdir %{patdirbase}/patterns
@@ -20,17 +24,17 @@
 %define patmode 755
 %define category SLE
 
-Name:         sca-patterns-alp1
-Version:      2.0.4
-Release:      0
-Summary:      Supportconfig Analysis Patterns for SLE16
-License:      GPL-2.0
-URL:          https://github.com/g23guy/sca-patterns-sle16
-Group:        System/Monitoring
-Source:       %{name}-%{version}.tar.gz
-Requires:     sca-patterns-template-gen2
-Buildarch:    noarch
-BuildRequires: fdupes
+Name:           sca-patterns-alp1
+Version:        2.0.4
+Release:        0
+Summary:        Supportconfig Analysis Patterns for SLE16
+License:        GPL-2.0-only
+URL:            https://github.com/g23guy/sca-patterns-alp1
+Group:          System/Monitoring
+Source:         %{name}-%{version}.tar.gz
+Requires:       sca-patterns-template-gen2
+BuildArch:      noarch
+BuildRequires:  fdupes
 
 %description
 Supportconfig Analysis (SCA) appliance patterns to identify known
@@ -67,4 +71,3 @@ install -m %{patmode} patterns/%{category}/sle16sp0/* %{buildroot}/%{patdir}/%{c
 %attr(%{patmode},%{patuser},%{patgrp}) %{patdir}/%{category}/sle16sp1/*
 
 %changelog
-
