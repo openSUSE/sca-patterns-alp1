@@ -80,7 +80,7 @@ def main(argv):
 
 # Entry point
 if __name__ == '__main__':
-    pat = suse.SCAPatternGen2('Basic Health', 'ALP', 'Kernel')
+    pat = suse.SCAPatternGen2('Basic Health', 'SLE', 'Kernel')
     pat.set_id(os.path.basename(__file__))
     pat.set_tid('000016914')
     main(sys.argv)
